@@ -1,7 +1,17 @@
 * {
      padding: 0;
      margin: 0;
+     outline: 0;
+     list-style: none;
+     text-decoration: none;
      box-sizing: border-box;
+     border: 0;
+}
+
+:root {
+     --container-width-lg: 80%;
+     --container-width-md: 90%;
+     --container-width-sm: 94%;
 }
 
 html {
@@ -16,210 +26,92 @@ p {
      vertical-align: baseline;
 }
 
-.bg-grid {
-     max-width: 1024px;
-     display: grid;
-     grid-template-columns: 100%;
-     grid-column-gap: 2rem;
-     width: calc(100% - 2rem);
-     margin-left: 1rem;
-     margin-right: 2rem;
+section {
+     padding: 0 2rem;
 }
 
-.header-section {
+section h2 {
+     /* text-align: center; */
+     margin-left: 7rem;
+     margin-bottom: 3.5rem;
+}
+
+.navbar-1 {
      position: fixed;
+     height: 4rem;
      top: 0;
      left: 0;
      width: 100%;
      background-color: #f2f2f2;
      box-shadow: 0px 1px 4px rgba(146, 161, 176, .15);
-     z-index: 100;
+     z-index: 11;
 }
 
 .container {
-     box-sizing: border-box;
+     width: var(--container-width-lg);
      margin: 0 auto;
-     max-width: 1200px;
-     padding: 0 20px;
-     position: relative;
-     width: 100%;
 }
 
 /**************************
-*HEADER STYLING RULES
+*NAV STYLING RULES
 ***************************/
 
-.navbar-1 {
-     font-size: 80%;
-     padding: 1rem;
+.nav_container {
+     height: 100%;
      display: flex;
      justify-content: space-between;
      align-items: center;
-     width: 100%;
 }
 
-.nav-link::after {
-     position: absolute;
-     content: "";
-     width: 100%;
-     height: 0.18rem;
-     top: 1.3rem;
-     left: 0;
-     background-color: #5372f0;
+nav button {
+     display: none;
 }
 
 #nav-list {
-     list-style: none;
-     padding: 0;
-     margin: 0;
-}
-
-.active::after {
-     position: absolute;
-     content: "";
-     width: 100%;
-     height: 0.18rem;
-     top: 1.3rem;
-     left: 0;
-     background-color: #5372f0;
-}
-
-/* .show {
-     left: 100%;
-     transition: 1.5s;
-} */
-
-.nav-item {
-     margin-bottom: 3rem;
-}
-
-.nav--link:hover {
-     position: relative;
+     display: flex;
+     align-items: center;
+     gap: 2rem;
+     transition: all 400ms;
 }
 
 .nav-link {
      text-decoration: none;
-     color: #fff;
-     position: relative;
-     font-size: .95em;
-}
-
-.btn-toggle {
-     display: none;
-}
-
-.btn-toggle span {
-     font-size: 2rem;
      color: #333;
-     cursor: pointer;
+     position: relative;
+     font-size: .9rem;
+     font-weight: 600;
 }
 
-.nav-logo p img {
+#nav-list.toggleShow {
+     right: 0;
+     transition: 1.5s;
+}
+
+.nav-logo a img {
      height: 25px;
      margin-right: 6px;
 }
 
-.nav-logo p {
-     font-size: 20px;
+.nav-logo a {
+     font-size: 1.2rem;
      display: flex;
      align-items: center;
-}
-
-.nav-2 {
-     height: 40%;
-     padding: 5px;
-     width: auto;
-     background: orange;
-     color: #fff;
-}
-
-.nav-2 p {
-     font-size: .95em;
-     padding: 7px;
-     margin-left: 5px;
-}
-
-.nav-2 p a {
-     color: #fff;
+     color: #333;
 }
 
 /**************************
 *MAIN STYLING RULES
 ***************************/
-
-.hero-section {
-     min-height: 350px;
-     position: relative;
-}
-
-.hero-section-copy {
-     padding-top: 150px;
-     padding-left: 0;
-     padding-right: 0;
-     padding-bottom: 0;
-     width: 50%;
-}
-
-.hero-section-copy h1 {
-     color: rgba(0, 0, 0, .87);
-     font-size: 2.75em;
-     line-height: 1.1em;
-     margin-bottom: 24px;
-     padding: 0 20px;
-}
-
-.hero-section-copy p {
-     color: rgba(0, 0, 0, .87);
-     font-size: 1.25em;
-     line-height: 1.5em;
-     padding: 12px 24px;
-}
-
-.hero-section-media {
-     position: absolute;
-     bottom: 0;
-     left: 50%;
-     top: 0;
-     width: 50%;
-}
-
-.hero-section-media .hero-academy-image.academy {
-     background-image: url(../assets/hero_academy.jpg);
-}
-
-.hero-section .hero-section-media .hero-academy {
-     background-position: right center;
-     background-size: cover;
-     height: 100%;
-     position: absolute;
-     right: 0;
-     top: 0;
-     width: 100%;
-}
-
 /**************************
 *COURSE STYLING RULES
 *************************/
-section {
-     display: block;
-     /* vertical-align: baseline; */
-}
-
-.container {
-     box-sizing: border-box;
-     margin: 0 auto;
-     max-width: 1200px;
-     padding: 0 10px;
-     width: 100%;
-}
-
 .course_img {
      width: 50px;
      height: 50px;
      margin-bottom: 1.5rem;
 }
 
-.courseRow {
+.courses_container {
      display: grid;
      grid-template-columns: repeat(4, 1fr);
      gap: 20px;
@@ -229,11 +121,11 @@ section {
      background: #527bdb;
      padding-bottom: 24px;
      padding-top: 24px;
+     width: 100vw;
 }
 
-.container>h2 {
+.academyCourses h2 {
      margin-top: 12px;
-     margin-bottom: 32px;
      color: #fff;
      font-size: 1.875em;
 }
@@ -244,23 +136,39 @@ section {
 .gettingStarted,
 .dataStudio,
 .fundamentals {
+     position: relative;
      padding: 10px 7px 0 10px;
      height: 370px;
-     width: 260px;
+     width: 240px;
      margin-bottom: .55rem;
      background: #fff;
      box-shadow: 0 1px 3px 0 rgb(227, 227, 227);
 }
 
-.beginners h2,
-.advance h2,
-.powerUser h2,
-.gettingStarted h2,
-.dataStudio h2,
-.fundamentals h2 {
-     font-size: 17px;
+i.fa {
+     position: absolute;
+     top: 80%;
+     left: 85%;
+     font-size: 25px;
+     color: #e3872c;
+     color: orange;
+     cursor: pointer;
+}
+
+/* .fa span{
+     font-size: 70px;
+} */
+
+.beginners h3,
+.advance h3,
+.powerUser h3,
+.gettingStarted h3,
+.dataStudio h3,
+.fundamentals h3 {
+     font-size: 1.2rem;
      line-height: 1.6rem;
      margin-bottom: 2rem;
+     font-weight: 600;
 }
 
 .container p {
@@ -301,7 +209,7 @@ h3 {
      font-size: 1.25rem;
      padding-bottom: 14px;
      padding-left: 24px;
-     padding-top: -8px;
+     padding-top: 8px;
 }
 
 .col>p {
@@ -345,9 +253,8 @@ h3 {
 
 .miniCourse-list {
      padding-top: 25px;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+     display: grid;
+     grid-template-columns: repeat(4, 1fr);
      flex-wrap: wrap;
      gap: 1.3rem;
 }
@@ -418,133 +325,174 @@ h3 {
 }
 
 /**************************
-*MEDIA STYLING RULES
+*MEDIA STYLING RULES (TABLETS)
 *************************/
 
-@media screen and (max-width: 1024px) {
-     .courseRow {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-     }
-
-     .beginners,
-     .advance,
-     .powerUser,
-     .gettingStarted,
-     .dataStudio,
-     .fundamentals {
-          /* padding: 10px 7px 0 10px; */
-          height: 370px;
-          width: 300px;
-          margin-bottom: .55rem;
-          background: #fff;
-          box-shadow: 0 1px 3px 0 rgb(227, 227, 227);
-          border-radius: 6px;
-     }
-}
-
-/* @media screen and (max-width: 768px) {
-
-} */
-
-
-@media screen and (min-width:768px) {
-     #nav-list {
-          display: flex;
-          padding-top: 0;
-     }
-
-     .navbar-1 {
-          height: calc(3rem + 1rem);
-     }
-
-
-     .nav-item {
-          margin-left: 3rem;
-          margin-bottom: 0.5rem;
-     }
-
-     .nav-link {
-          color: #333;
-          font-weight: 600;
-     }
-}
-
-@media screen and (max-width:825px) {
-
-     .nav-menu {
-          position: fixed;
-          top: 4.42rem;
-          left: 100%;
-          width: 60%;
-          background: #ddd;
-          height: 100%;
-          padding: 2rem;
-          transition: 1.8s;
-     }
-
-     .btn-toggle {
-          display: block;
-     }
-
-     .firebase img,
-     .manager img,
-     .optimize img,
-     .playlists img {
-          margin-top: 17px;
-     }
-
-
-
-     .learn {
-          width: 420px;
-          margin-left: 20px;
-          height: 200px;
-          font-size: 1em;
-     }
-
-     .courseRow {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-     }
-
-     .img {
+@media screen and (max-width:1140px) {
+     nav button {
           display: none;
      }
 
-     .resourcesList {
-          padding: 20px;
+}
+
+@media screen and (max-width:1024px) {
+     .container {
+          width: var(--container-width-md);
+     }
+
+     nav button {
+          display: inline-block;
+          font-size: 2rem;
+          color: var(--color-white);
+          background: transparent;
+          cursor: pointer;
+     }
+
+     button#close-menu-toggle {
+          display: none;
+     }
+
+     #nav-list {
+          flex-direction: column;
+          gap: 0;
+          position: fixed;
+          top: 4rem;
+          right: -100%;
+          width: 16rem;
+          height: fit-content;
+          /* display: none; */
+     }
+
+     #nav-list li {
+          width: 100%;
+          height: 6rem;
+          animation: animateNavBar 1.2s linear forwards;
+          transform-origin: top right;
+          opacity: 0;
+     }
+
+     #nav-list li a {
+          width: 100%;
+          height: 100%;
+          color: #fff;
           display: grid;
-          grid-template-columns: repeat(1, .5fr);
-          gap: 1.3rem;
+          place-items: center;
+          font-size: 1rem;
+          font-weight: 500;
+          background: #333;
+          transition: all 500ms ease;
      }
 
-     .beginners,
-     .advance,
-     .powerUser,
-     .gettingStarted,
-     .dataStudio,
-     .fundamentals {
-          padding: 10px 7px 0 10px;
-          height: 370px;
-          width: 350px;
-          margin-bottom: .55rem;
-          background: #fff;
-          box-shadow: 0 1px 3px 0 rgb(227, 227, 227);
-          border-radius: 6px;
+     #nav-list li:nth-child(2) {
+          animation-delay: 1s;
      }
 
-     .course_img {
-          width: 70px;
-          height: 70px;
-          margin-top: 19px;
-          margin-bottom: 2.4rem;
+     #nav-list li:nth-child(3) {
+          animation-delay: 2s;
+     }
+
+     #nav-list li:nth-child(4) {
+          animation-delay: 3s;
+     }
+
+     #nav-list li:nth-child(5) {
+          animation-delay: 4s;
+     }
+
+     #nav-list li a:hover {
+          background: linear-gradient(rgba(0, 0, 0, 0.6), #333);
+          font-size: .95rem;
+     }
+
+     @keyframes animateNavBar {
+          0% {
+               transform: rotateZ(-90deg) rotateX(45deg) scale(0.1);
+          }
+
+          100% {
+               transform: rotateZ(0) rotateX(0) scale(1);
+               opacity: 1;
+          }
+     }
+
+     /************** ACADEMY COURSES *************/
+     /* .academyCourses {
+          width: 100%;
+     } */
+
+     .courses_container {
+          grid-template-columns: repeat(3, 1fr);
+     }
+
+     .resourcesList {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 2rem;
+     }
+
+     .miniCourse-list {
+          grid-template-columns: repeat(3, 1fr);
      }
 
      .justin img,
      .krista img,
      .ashish img {
           display: none;
+     }
+}
+
+
+/**************************
+*MEDIA STYLING RULES (MOBILE)
+*************************/
+
+@media screen and (max-width:768px) {
+     .container {
+          width: var(--container-width-sm);
+     }
+
+     .courses_container {
+          grid-template-columns: 1fr 1fr;
+          gap: 0.6rem;
+          place-items: center;
+     }
+
+     .resourcesList {
+          grid-template-columns: 1fr 1fr;
+          place-items: center;
+          gap: 2.5rem;
+     }
+
+     .miniCourse-list {
+          grid-template-columns: repeat(2, 1fr);
+          place-items: center;
+     }
+}
+
+@media screen and (max-width:425px) {
+     .container {
+          width: var(--container-width-sm);
+     }
+
+     .academyCourses h2 {
+          font-size: 1rem;
+          text-align: center;
+          margin-left: 0;
+     }
+
+     .courses_container {
+          grid-template-columns: 1fr;
+          gap: 0.6rem;
+          place-items: center;
+     }
+
+     .resourcesList {
+          grid-template-columns: 1fr 1fr;
+          place-items: center;
+          gap: 2.5rem;
+     }
+
+     .miniCourse-list {
+          grid-template-columns: 1fr;
+          place-items: center;
      }
 }

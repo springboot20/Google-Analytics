@@ -1,11 +1,27 @@
-const showMenu = (toggleId, menuId) => {
-     const toggleBtn = document.getElementById(`${toggleId}`)
-     const menuBar = document.getElementById(`${menuId}`)
 
-     if (toggleBtn && menuBar) {
-          toggleBtn.addEventListener('click', () => {
-               menuBar.classList.add('show')
-          })
-     }
+
+const showMenu = (openId, closeId) => {
+     const openBtn = document.getElementById(openId),
+          closeBtn = document.getElementById(closeId),
+          nav = document.getElementById('nav-list')
+
+     openBtn.addEventListener('click', () => {
+          nav.classList.toggle('toggleShow')
+          closeBtn.style.display = "block"
+          openBtn.style.display = "none"
+     })
 }
-showMenu('toggle', 'nav-menu')
+showMenu('open-menu-toggle', 'close-menu-toggle')
+
+const closeMenu = (openId, closeId) => {
+     const openBtn = document.getElementById(openId),
+          closeBtn = document.getElementById(closeId),
+          nav = document.getElementById('nav-list')
+
+     closeBtn.addEventListener('click', () => {
+          nav.classList.toggle('toggleShow')
+          closeBtn.style.display = "none"
+          openBtn.style.display = "block"
+     })
+}
+closeMenu('open-menu-toggle', 'close-menu-toggle')
